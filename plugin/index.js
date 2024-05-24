@@ -29,5 +29,9 @@ exports.handlers = {
         }else{
             e.source = ''; // If file has no comments, parser should still receive no code
         }
+    },
+    newDoclet: function(e) {
+        const fileExt = e.doclet.meta.filename.split('.').pop();
+        e.doclet.longname = fileExt + '_' + e.doclet.longname;
     }
 };
